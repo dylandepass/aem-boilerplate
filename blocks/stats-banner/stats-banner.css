@@ -1,0 +1,104 @@
+main .stats-banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+@media (width >= 768px) {
+  main .stats-banner {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}
+
+@media (width >= 1200px) {
+  main .stats-banner {
+    padding: 3.5rem 2.5rem;
+    gap: 4rem;
+  }
+}
+
+/* Headline */
+main .stats-banner .stats-banner-headline {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+@media (width >= 768px) {
+  main .stats-banner .stats-banner-headline {
+    max-width: 220px;
+  }
+}
+
+@media (width >= 1200px) {
+  main .stats-banner .stats-banner-headline {
+    max-width: 260px;
+  }
+}
+
+main .stats-banner .stats-banner-headline h1,
+main .stats-banner .stats-banner-headline h2,
+main .stats-banner .stats-banner-headline h3,
+main .stats-banner .stats-banner-headline p {
+  font-family: var(--heading-font-family, 'Georgia', serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--text-color, #111);
+}
+
+/* Stats container */
+main .stats-banner .stats-banner-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 3rem;
+  flex: 1 1 auto;
+}
+
+@media (width >= 768px) {
+  main .stats-banner .stats-banner-stats {
+    gap: 2rem 4rem;
+    justify-content: flex-start;
+  }
+}
+
+@media (width >= 1200px) {
+  main .stats-banner .stats-banner-stats {
+    gap: 2rem 5rem;
+  }
+}
+
+/* Individual stat */
+main .stats-banner .stats-banner-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* The number */
+main .stats-banner .stats-banner-number {
+  font-family: var(--heading-font-family, 'Georgia', serif);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-color, #111);
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+/* The label */
+main .stats-banner .stats-banner-label {
+  font-family: var(--body-font-family, 'Arial', sans-serif);
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+}
