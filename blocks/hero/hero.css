@@ -7,13 +7,55 @@
   position: relative;
   padding: 40px 24px;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--background-color);
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.hero h2 {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #ffffff;
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.hero .hero-cta {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.hero .hero-cta a {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--link-color);
+  color: #0e0e0e;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.hero .hero-cta a:hover {
+  background-color: var(--link-hover-color);
 }
 
 .hero picture {

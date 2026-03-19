@@ -1,9 +1,13 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #0a0a0f;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   position: fixed;
+  border-bottom: 1px solid rgba(255 255 255 / 8%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 40px rgba(0 0 0 / 40%);
 }
 
 header nav {
@@ -15,7 +19,7 @@ header nav {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1280px;
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
@@ -28,19 +32,21 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: #0a0a0f;
 }
 
 @media (width >= 900px) {
   header .nav-wrapper {
-    position: relative;
+    position: fixed;
   }
 
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
+    align-items: center;
+    gap: 0 40px;
+    max-width: 1280px;
+    padding: 0 40px;
   }
 
   header nav[aria-expanded='true'] {
@@ -56,6 +62,7 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -72,11 +79,12 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -100,7 +108,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: currentcolor;
+  background: rgba(255 255 255 / 80%);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -124,6 +132,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   width: 24px;
   height: 2px;
   border-radius: 2px;
+  background: rgba(255 255 255 / 80%);
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -142,15 +151,32 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  flex-basis: auto;
+  flex-shrink: 0;
+  font-size: 1.1rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1;
+  color: #fff;
+}
+
+header .nav-brand a:any-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.2s ease;
+}
+
+header .nav-brand a:hover {
+  opacity: 0.85;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 120px;
   height: auto;
+  display: block;
 }
 
 /* sections */
@@ -165,16 +191,19 @@ header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  padding: 16px 0 24px;
 }
 
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  color: rgba(255 255 255 / 75%);
 }
 
 header nav .nav-sections ul > li > ul {
@@ -183,6 +212,17 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+  color: rgba(255 255 255 / 60%);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255 255 255 / 6%);
+}
+
+header nav .nav-sections ul > li > ul > li:last-child {
+  border-bottom: none;
+}
+
+header nav .nav-sections ul > li > ul > li a:hover {
+  color: #fff;
 }
 
 @media (width >= 900px) {
@@ -194,11 +234,12 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
+    padding: 0;
   }
 
   header nav .nav-sections .nav-drop {
     position: relative;
-    padding-right: 16px;
+    padding-right: 20px;
     cursor: pointer;
   }
 
@@ -206,31 +247,59 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.2em;
+    top: 0.15em;
     right: 2px;
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
+    width: 5px;
+    height: 5px;
+    border: 1.5px solid rgba(255 255 255 / 60%);
     border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+    border-width: 1.5px 1.5px 0 0;
+    transition: transform 0.2s ease, top 0.2s ease, bottom 0.2s ease;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
     top: unset;
-    bottom: 0.2em;
+    bottom: 0.15em;
     transform: rotate(315deg);
   }
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
+    gap: 4px;
     margin: 0;
+    align-items: center;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a,
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: rgba(255 255 255 / 72%);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background-color 0.18s ease, color 0.18s ease;
+    cursor: pointer;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > a:hover,
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop:hover {
+    background-color: rgba(255 255 255 / 7%);
+    color: #fff;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > a,
+  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'].nav-drop {
+    background-color: rgba(255 255 255 / 10%);
+    color: #fff;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -241,32 +310,84 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    left: 0;
+    width: 220px;
+    top: calc(100% + 12px);
+    padding: 8px;
+    background-color: #16161f;
+    border: 1px solid rgba(255 255 255 / 8%);
+    border-radius: 12px;
     white-space: initial;
+    box-shadow: 0 8px 32px rgba(0 0 0 / 50%), 0 2px 8px rgba(0 0 0 / 30%);
+    animation: nav-dropdown-in 0.18s ease;
+  }
+
+  @keyframes nav-dropdown-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    top: -5px;
+    left: 18px;
+    width: 8px;
+    height: 8px;
+    background: #16161f;
+    border-left: 1px solid rgba(255 255 255 / 8%);
+    border-top: 1px solid rgba(255 255 255 / 8%);
+    transform: rotate(45deg);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    display: block;
+    padding: 9px 14px;
+    color: rgba(255 255 255 / 68%);
+    font-size: 0.85rem;
+    font-weight: 400;
+    border-radius: 8px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    background-color: rgba(255 255 255 / 7%);
+    color: #fff;
   }
 }
 
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header nav .nav-tools a:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: rgba(255 255 255 / 70%);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+header nav .nav-tools a:hover {
+  background-color: rgba(255 255 255 / 8%);
+  color: #fff;
 }

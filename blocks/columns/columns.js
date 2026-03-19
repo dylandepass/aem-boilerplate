@@ -11,6 +11,16 @@ export default function decorate(block) {
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
           picWrapper.classList.add('columns-img-col');
+
+          // Ensure the img fills the container via absolute positioning
+          const img = picWrapper.querySelector('img');
+          if (img) {
+            img.style.position = 'absolute';
+            img.style.inset = '0';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+          }
         }
       }
     });

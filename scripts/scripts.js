@@ -25,8 +25,27 @@ function buildHeroBlock(main) {
     if (h1.closest('.hero') || picture.closest('.hero')) {
       return; // Don't create a duplicate hero block
     }
+    const elems = [picture, h1];
+
+    // Optionally pick up a subheading (H2) immediately after the H1
+    const nextEl = h1.nextElementSibling;
+    const isSubheading = nextEl && /^H[2-6]$/.test(nextEl.tagName);
+    if (isSubheading) {
+      elems.push(nextEl);
+      // Optionally pick up a CTA link paragraph after the subheading
+      const ctaEl = nextEl.nextElementSibling;
+      if (ctaEl && ctaEl.tagName === 'P' && ctaEl.querySelector('a')) {
+        ctaEl.classList.add('hero-cta');
+        elems.push(ctaEl);
+      }
+    } else if (nextEl && nextEl.tagName === 'P' && nextEl.querySelector('a')) {
+      // CTA without a subheading
+      nextEl.classList.add('hero-cta');
+      elems.push(nextEl);
+    }
+
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('hero', { elems }));
     main.prepend(section);
   }
 }

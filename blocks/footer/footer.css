@@ -1,20 +1,145 @@
 footer {
-  background-color: var(--light-color);
+  background-color: #111;
   font-size: var(--body-font-size-xs);
+  color: #aaa;
+  border-top: 2px solid #64B48C;
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 48px 24px 32px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Top row: brand + nav */
+footer .footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 28px;
+}
+
+/* Brand column */
+footer .footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer .footer-brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+footer .footer-brand-tagline {
+  font-size: var(--body-font-size-xs);
+  color: #64B48C;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Nav links column */
+footer .footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: var(--body-font-size-xs);
+  transition: color 0.2s ease;
+}
+
+footer .footer-nav a:hover {
+  color: #64B48C;
+}
+
+/* Bottom bar: copyright + legal */
+footer .footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer .footer-copyright {
+  color: #666;
+  font-size: var(--body-font-size-xs);
+}
+
+footer .footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-legal li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer-legal li:not(:last-child)::after {
+  content: '/';
+  margin: 0 8px;
+  color: #444;
+}
+
+footer .footer-legal a {
+  color: #64B48C;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer-legal a:hover {
+  color: #fff;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 56px 32px 36px;
+  }
+
+  footer .footer-top {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  footer .footer-brand {
+    max-width: 320px;
+  }
+
+  footer .footer-nav {
+    justify-content: flex-end;
+    max-width: 55%;
+  }
+
+  footer .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

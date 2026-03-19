@@ -1,33 +1,143 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .columns img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .columns > div > div {
   order: 1;
+  padding: 2rem 2.5rem;
 }
 
 .columns > div > .columns-img-col {
   order: 0;
+  overflow: hidden;
+  min-height: 280px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.columns > div > .columns-img-col:hover img {
+  transform: scale(1.04);
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Typography inside content columns */
+.columns > div > div h1,
+.columns > div > div h2,
+.columns > div > div h3,
+.columns > div > div h4,
+.columns > div > div h5,
+.columns > div > div h6 {
+  font-family: var(--heading-font-family, sans-serif);
+  color: var(--clr-white, #fff);
+  margin-block: 0 0.75rem;
+  line-height: 1.25;
+}
+
+.columns > div > div p {
+  font-family: var(--body-font-family, sans-serif);
+  color: var(--secondary-color, #e9e9e8);
+  line-height: 1.7;
+  margin-block: 0 1rem;
+}
+
+/* Styled list */
+.columns > div > div ul {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.columns > div > div ul li {
+  color: var(--secondary-color, #e9e9e8);
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid #64b48c;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* CTA link styled as pill button */
+.columns > div > div a:any-link {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  border: 1.5px solid #64b48c;
+  border-radius: 999px;
+  color: #64b48c;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  margin-block-start: 0.5rem;
+}
+
+.columns > div > div a:hover {
+  background: #64b48c;
+  color: #0a0a0a;
+}
+
+/* Block-level wrapper styling */
+.columns {
+  background: #0d0d0d;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgb(0 0 0 / 40%);
+}
+
+.columns > div {
+  border-block-end: 1px solid rgb(255 255 255 / 6%);
+}
+
+.columns > div:last-child {
+  border-block-end: none;
 }
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    align-items: stretch;
+    flex-direction: row;
+    gap: 0;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .columns > div > .columns-img-col {
+    flex: 1;
+    min-height: 320px;
+    border-radius: 0;
+  }
+
+  /* Alternating column borders */
+  .columns > div > div + div,
+  .columns > div > .columns-img-col + div,
+  .columns > div > div + .columns-img-col {
+    border-inline-start: 1px solid rgb(255 255 255 / 6%);
   }
 }
