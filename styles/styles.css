@@ -12,16 +12,16 @@
 
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --background-color: #0d0d0d;
+  --light-color: #1a1a1a;
+  --dark-color: #e9e9e8;
+  --text-color: #ffffff;
+  --link-color: #64b48c;
+  --link-hover-color: #4e9a74;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Inter', inter-fallback, sans-serif;
+  --heading-font-family: 'Inter', inter-fallback, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -38,18 +38,15 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* brand accent */
+  --brand-accent-color: #64b48c;
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
+  font-family: inter-fallback;
+  size-adjust: 100.3%;
   src: local('Arial');
 }
 
@@ -107,7 +104,7 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
   scroll-margin: 40px;
 }
@@ -182,7 +179,7 @@ button.button {
   border-radius: 2.4em;
   padding: 0.5em 1.2em;
   font: inherit;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
@@ -199,8 +196,8 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
+  border-color: var(--brand-accent-color);
+  background-color: var(--brand-accent-color);
   color: var(--background-color);
 }
 
@@ -208,9 +205,9 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: var(--background-color);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -226,18 +223,18 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--brand-accent-color);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--brand-accent-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
+  border-color: var(--link-hover-color);
   background-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--link-hover-color);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -254,8 +251,8 @@ button.button.secondary:disabled:focus-visible {
 /* high-impact call-to-action */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
+  border-color: var(--brand-accent-color);
+  background-color: var(--brand-accent-color);
   color: var(--background-color);
 }
 

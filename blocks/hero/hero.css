@@ -7,13 +7,49 @@
   position: relative;
   padding: 40px 24px;
   min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-color);
+}
+
+.hero h2 {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.hero p {
+  margin-top: 1.5rem;
+}
+
+.hero p a {
+  display: inline-block;
+  background-color: var(--brand-accent-color);
   color: var(--background-color);
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+  transition: background-color 0.2s ease;
+}
+
+.hero p a:hover {
+  background-color: var(--link-hover-color);
 }
 
 .hero picture {

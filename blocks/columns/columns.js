@@ -15,4 +15,20 @@ export default function decorate(block) {
       }
     });
   });
+
+  // Add arrow indicator to all links
+  block.querySelectorAll('a').forEach((link) => {
+    const arrow = document.createElement('span');
+    arrow.textContent = '→';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.style.cssText = 'display:inline-block;transition:transform 250ms ease;font-style:normal;';
+    link.appendChild(arrow);
+
+    link.addEventListener('mouseenter', () => {
+      arrow.style.transform = 'translateX(4px)';
+    });
+    link.addEventListener('mouseleave', () => {
+      arrow.style.transform = 'translateX(0)';
+    });
+  });
 }
