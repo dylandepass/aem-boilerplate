@@ -13,15 +13,6 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
-
-      // Detect and tag anchor links as buttons if they appear alone in a <p>
-      const anchors = col.querySelectorAll('p > a');
-      anchors.forEach((a) => {
-        const parentP = a.parentElement;
-        if (parentP && parentP.children.length === 1 && parentP.textContent.trim() === a.textContent.trim()) {
-          a.classList.add('button');
-        }
-      });
     });
   });
 }

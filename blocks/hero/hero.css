@@ -7,50 +7,13 @@
   position: relative;
   padding: 40px 24px;
   min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 12px;
-  color: #ffffff;
-}
-
-.hero p.hero-subtitle {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: var(--body-font-size-m);
-  font-family: var(--body-font-family);
-}
-
-.hero p.hero-cta {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero p.hero-cta a {
-  display: inline-block;
-  padding: 12px 28px;
-  background-color: #0e9e6e;
-  color: #ffffff;
-  text-decoration: none;
-  font-family: var(--body-font-family);
-  font-weight: 700;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.hero p.hero-cta a:hover {
-  background-color: #0b7d57;
+  color: var(--background-color);
 }
 
 .hero picture {
